@@ -7,7 +7,6 @@
 
 CC	=	gcc
 
-##?				NORMAL TESTS
 SRC		=	src/Cvector_create.c		\
 			src/Cvector_clear.c			\
 			src/Cvector_push_back.c		\
@@ -20,12 +19,12 @@ SRC		=	src/Cvector_create.c		\
 
 OBJ		=	$(SRC:.c=.o)
 
-NAME	=	Cvector_test
+NAME	=	Cvector
 
-CPPFLAGS	=	-I./include -Wextra
-#!#######################################################
+CPPFLAGS	=	-I./include
 
-##?				UNIT TESTS
+CFLAGS	=	-Werror -Wextra
+
 COVER		=	--coverage
 
 CRITERION	=	-lcriterion
@@ -39,7 +38,6 @@ OBJ_TEST	=	$(SRC_TEST:.c=.o)
 
 GCDA		=	*.gcda
 GCNO		=	*.gcno
-#!#######################################################
 
 all:	$(NAME)
 
@@ -50,6 +48,9 @@ tests_run:	$(OBJ_TEST)
 	$(MAKE) fclean
 	$(CC) -o $(TEST_NAME) $(COVER) $(CPPFLAGS) $(SRC_TEST) $(CRITERION)
 	./$(TEST_NAME)
+
+debug:	CPPFLAGS += -g3
+debug:	$(NAME)
 
 tests_clean:
 	rm -f $(OBJ_TEST)
@@ -68,4 +69,4 @@ fclean:	clean
 
 re:	fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all debug tests_clean clean fclean re
