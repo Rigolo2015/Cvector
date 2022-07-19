@@ -12,7 +12,7 @@
 #include "Cvector.h"
 #include "value.h"
 
-int vector_push_index(Cvector *vector, type value, unsigned int index)
+int Cvector_push_index(Cvector *vector, type value, unsigned int index)
 {
     unsigned int old_vector_index = 0;
 
@@ -35,13 +35,14 @@ int vector_push_index(Cvector *vector, type value, unsigned int index)
         printf("[ERR] vector_push_index: %s", MALLOC_ERROR);
         return ERROR;
     }
+    new_vector->size = vector->size + 1;
 
-    for (unsigned int i = 0; i < vector->size + 1; ++i) {
-        new_vector->element[i] = vector->element[old_vector_index];
+    for (unsigned int i = 0; i < new_vector->size; ++i) {
         if (i == index) {
             new_vector->element[i] = value;
             continue;
         }
+        new_vector->element[i] = vector->element[old_vector_index];
         old_vector_index += 1;
     }
     vector->element = new_vector->element;

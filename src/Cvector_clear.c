@@ -11,7 +11,7 @@
 #include "Cvector.h"
 #include "value.h"
 
-int vector_clear(Cvector *vector)
+int Cvector_clear(Cvector *vector)
 {
     if (vector == NULL) {
         printf("[ERR] vector_clear: %s", VECTOR_NULL);

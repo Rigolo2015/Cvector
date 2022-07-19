@@ -12,7 +12,7 @@
 #include "Cvector.h"
 #include "value.h"
 
-void vector_show(Cvector *vector, char const *format)
+void Cvector_show(Cvector *vector, char const *format)
 {
     if (vector == NULL) {
         printf("[ERR] vector_show: %s", VECTOR_NULL);

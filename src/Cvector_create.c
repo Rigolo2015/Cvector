@@ -12,7 +12,7 @@
 #include "Cvector.h"
 #include "value.h"
 
-Cvector *vector_create(unsigned int nb_value, ...)
+Cvector *Cvector_create(unsigned int nb_value, ...)
 {
     va_list values;
     Cvector *vector = malloc(sizeof(Cvector));

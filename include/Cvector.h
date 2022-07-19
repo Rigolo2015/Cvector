@@ -34,7 +34,7 @@ typedef struct Cvector {
  * @param type type of the element in vector (int, char *)
  * @param commands commands you want to do with the vector inside the loop
  */
-#define for_each(vector, type, commands)                    \
+#define Cvector_for_each(vector, type, commands)                    \
     for (unsigned int i = 0; i < vector->size; ++i) {       \
         int *integer;                                           \
         char *string;                                           \
@@ -54,14 +54,14 @@ typedef struct Cvector {
  * @param ... values you want to put in vector (int, char *, struct, ...)
  * @return Cvector *
  */
-Cvector *vector_create(unsigned int nb_value, ...);
+Cvector *Cvector_create(unsigned int nb_value, ...);
 
 /**
  * @brief free Cvector->element
  * 
  * @return int 0 if success, else -1
  */
-int vector_clear(Cvector *);  // remove all the elements of the vector container
+int Cvector_clear(Cvector *);  // remove all the elements of the vector container
 
 /**
  * @brief Push the elements into a vector from the back
@@ -70,7 +70,7 @@ int vector_clear(Cvector *);  // remove all the elements of the vector container
  * @param value what you need to push
  * @return int 0 if success, else -1
  */
-int vector_push_back(Cvector *vector, type value);
+int Cvector_push_back(Cvector *vector, type value);
 
 /**
  * @brief  Push elements from a vector from the front
@@ -79,7 +79,7 @@ int vector_push_back(Cvector *vector, type value);
  * @param value what you need to push
  * @return int 0 if success, else -1
  */
-int vector_push_front(Cvector *vector, type value);
+int Cvector_push_front(Cvector *vector, type value);
 
 /**
  * @brief Extends the container by inserting new element at position
@@ -89,7 +89,7 @@ int vector_push_front(Cvector *vector, type value);
  * @param index 
  * @return int 0 if success, else -1
  */
-int vector_push_index(Cvector *vector, type value, unsigned int index);
+int Cvector_push_index(Cvector *vector, type value, unsigned int index);
 
 /**
  * @brief Pop/remove elements from a vector from the back
@@ -97,7 +97,7 @@ int vector_push_index(Cvector *vector, type value, unsigned int index);
  * @param vector 
  * @return int 0 if success, else -1
  */
-int vector_pop_back(Cvector *vector);
+int Cvector_pop_back(Cvector *vector);
 
 /**
  * @brief Pop or remove elements from a vector from the front
@@ -105,7 +105,7 @@ int vector_pop_back(Cvector *vector);
  * @param vector 
  * @return int 0 if success, else -1
  */
-int vector_pop_front(Cvector *vector);
+int Cvector_pop_front(Cvector *vector);
 
 /**
  * @brief Pop or remove elements from a vector from the index
@@ -114,7 +114,7 @@ int vector_pop_front(Cvector *vector);
  * @param index position of element you want to remove
  * @return int 0 if success, else -1
  */
-int vector_pop_index(Cvector *vector, unsigned int index);
+int Cvector_pop_index(Cvector *vector, unsigned int index);
 
 /**
  * @brief Show the vector
@@ -122,6 +122,6 @@ int vector_pop_index(Cvector *vector, unsigned int index);
  * @param vector vector you want to show
  * @param format string you will put in printf
  */
-void vector_show(Cvector *vector, char const *format);
+void Cvector_show(Cvector *vector, char const *format);
 
 #endif

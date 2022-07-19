@@ -12,9 +12,9 @@
 #include "Cvector.h"
 #include "value.h"
 
-int vector_pop_back(Cvector *vector)
+int Cvector_pop_front(Cvector *vector)
 {
-    int r_value = vector_pop_index(vector, vector->size);
+    int r_value = Cvector_pop_index(vector, 0);
 
     return r_value;
 }

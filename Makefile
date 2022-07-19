@@ -8,19 +8,19 @@
 CC	=	gcc
 
 ##?				NORMAL TESTS
-SRC		=	src/vector_create.c			\
-			src/vector_clear.c			\
-			src/vector_push_back.c		\
-			src/vector_push_front.c		\
-			src/vector_push_index.c		\
-			src/vector_pop_index.c		\
-			src/vector_pop_back.c		\
-			src/vector_pop_front.c		\
-			src/vector_show.c			\
+SRC		=	src/Cvector_create.c		\
+			src/Cvector_clear.c			\
+			src/Cvector_push_back.c		\
+			src/Cvector_push_front.c	\
+			src/Cvector_push_index.c	\
+			src/Cvector_pop_index.c		\
+			src/Cvector_pop_back.c		\
+			src/Cvector_pop_front.c		\
+			src/Cvector_show.c			\
 
 OBJ		=	$(SRC:.c=.o)
 
-NAME	=	project
+NAME	=	Cvector_test
 
 CPPFLAGS	=	-I./include -Wextra
 #!#######################################################
@@ -47,7 +47,7 @@ $(NAME):	$(OBJ)
 	$(CC) -o $(NAME) $(MAIN) $(SRC) $(CPPFLAGS) $(CLIBS)
 
 tests_run:	$(OBJ_TEST)
-	make fclean
+	$(MAKE) fclean
 	$(CC) -o $(TEST_NAME) $(COVER) $(CPPFLAGS) $(SRC_TEST) $(CRITERION)
 	./$(TEST_NAME)
 

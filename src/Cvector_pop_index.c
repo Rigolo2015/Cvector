@@ -12,7 +12,7 @@
 #include "Cvector.h"
 #include "value.h"
 
-int vector_pop_index(Cvector *vector, unsigned int index)
+int Cvector_pop_index(Cvector *vector, unsigned int index)
 {
     unsigned int old_vector_index = 0;
 
